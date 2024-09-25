@@ -1,0 +1,22 @@
+/* FAQ.css */
+
+.faq-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.faq-answer {
+    text-align: left;
+    margin-top: 5px;
+}

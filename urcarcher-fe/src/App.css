@@ -1,0 +1,184 @@
+/* Light */
+@font-face {
+  font-family: 'NanumSquareNeoLight';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
+}
+/* 기본 */
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
+}
+/* bold */
+@font-face {
+  font-family: 'NanumSquareNeoBold';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+/* ExtraBold */
+@font-face {
+  font-family: 'NanumSquareNeoExtraBold';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
+}
+/* Heavy */
+@font-face {
+  font-family: 'NanumSquareNeoHeavy';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
+}
+
+.App {  
+    text-align: center; 
+    width: 430px;  /* iPhone 14Pro Max 기준 */
+    height: 932px;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+    font-family: 'NanumSquareNeo', sans-serif;
+    overflow: hidden;  /* 크기 바깥 숨김 */
+    position: relative; /* .menu-wrap의 기준 위치 */
+    background-color: #fff;
+  }
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282C34;
+  /* min-height: 100vh; */
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61DAFB;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* 공통css */
+.contents{   /* 페이지컴포넌트 최상위div calssName에 넣어주세요(헤더만큼 공백) */
+  padding-top: 77px;
+}
+.inner{
+  max-width: 360px;
+}
+ul{
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+/* Header */
+header{
+  z-index: 80;
+  position: fixed;
+  width: 430px;
+  height: 77px;
+  box-sizing: border-box;
+  line-height: 77px;
+  background-color: #fff;
+  padding-left: 20px;
+  margin-bottom: 77px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.header-wrap{
+  display: flex;
+}
+.header-wrap > button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.header-wrap > h5{
+  margin: 0;
+  line-height: 77px;
+}
+/* Footer */
+.footer-wrap {
+  width: 430px;
+  height: 90px;
+  box-sizing: border-box;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: -1px;
+  background-color: #fff;
+  z-index: 200;
+}
+
+.menu-list{
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+}
+.menu-list > li{
+  list-style: none;
+}
+
+
+/* 해상도 APP width 값 조정 */
+/* 적용하면 깨지는 화면이 있어서 같이 조정 필요 */
+/* /exchange/currency */
+@media screen and (max-Width: 414px) { /* iPhone XR */
+  .App {
+    width: 414px; 
+  }
+  header{
+    width: 414px;
+  }
+  .footer-wrap {
+    width: 414px;
+  }
+}
+@media screen and (max-Width: 390px) { /* iPhone 12Pro */
+  .App {
+    width: 390px; 
+  }
+  header{
+    width: 390px;
+  } 
+  .footer-wrap {
+    width: 390px;
+  }
+    
+}
+@media screen and (max-Width: 375px) { /* iPhone SE */
+  .App {
+    width: 375px; 
+  }
+  header{
+    width: 375px;
+  }
+  .footer-wrap {
+    width: 375px;
+  }
+}
+

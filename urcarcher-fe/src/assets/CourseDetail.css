@@ -1,0 +1,293 @@
+.course-detail {
+    height: 90vh; 
+    overflow-y: auto; 
+  }
+  
+  .course-items-container {
+    width: 100%;
+    position: relative;
+    padding: 200px 20px 70px;
+  }
+  
+  .course-item {
+    position: relative;
+    /* display: flex;
+    width: calc(33.33% - 40px); */
+    max-width: 200px;
+    border-radius: 8px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 10px;
+    padding-left:4px;
+    padding-right:4px;
+    word-break: keep-all;
+  }
+  
+  .course-item h2 {
+    text-align: center;
+    font-size: smaller;
+    margin-bottom: 16px;
+    padding-top:15px;
+  }
+  
+  .course-item button {
+
+    font-size: 10px;
+    padding: 6px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+ 
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .course-item button:hover {
+    background-color: #0056b3;
+  }
+    
+
+  .place-container {
+    word-break: keep-all;
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f4f4f4; /* 배경색 */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 */
+    align-items: center;
+
+}
+
+.place-image {
+    width: 130px;
+    height: 110px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.place-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+    max-width: 600px; /* 텍스트 영역의 최대 너비 설정 */
+}
+
+.place-name {
+    font-size: 15px;
+    font-weight: bold;
+    padding-top :10px;
+}
+
+.place-address {
+  text-align: left;
+    font-size: 12px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.place-content {
+  text-align: left;
+    font-size: 10px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.place-detail-content {
+  text-align: justify;
+  font-size: 12px;
+  line-height: inherit;
+  color: #000000;
+
+}
+
+.all-place-container{
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 30px;
+}
+
+
+.row-container {
+  display: flex;
+  border-top: 3px solid #007bff;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  align-items: baseline;
+}
+
+
+.marker-image {
+  position: absolute;
+  top: -12px; /* 선 위로 올리기 위해 위쪽으로 이동 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px; /* 이미지 크기 조정 */
+  height: 20px; /* 이미지 크기 조정 */
+  cursor: pointer;
+}
+
+.detail-course-name{
+  font-size: 28px;
+  word-break: keep-all;
+  position: relative;
+  width: 100%;
+  background-size: cover; /* 배경 이미지를 요소 크기에 맞춤 */
+  background-position: center; /* 배경 이미지를 가운데 정렬 */
+  width: 100%; /* 전체 너비 */
+  height: 260px; /* 고정 높이 설정 */
+  z-index: 1;
+}
+.detail-course-name::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 검정색 반투명 배경 */
+  z-index: -1; /* 배경 이미지 위에 위치하지만 콘텐츠 아래에 위치하도록 */
+}
+#mainMap {
+  width: 100%;
+  height: 400px; /* 고정 높이 */
+  min-height: 400px; /* 최소 높이 설정 */
+}
+
+.modal-img{
+  padding: 7px;
+  margin-top: 10px;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.customoverlay .balloon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: #F4F7FC; /* 전체 말풍선의 배경색 */
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 0px 1px 2px #888;
+ 
+}
+
+.customoverlay .balloon-text-container {
+  background-color: white; /* 텍스트 부분 배경색 */
+  padding: 10px 10px;
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.customoverlay .balloon-text {
+  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+  font-weight: bold;
+}
+
+.customoverlay .balloon-arrow-container {
+  background-color: #F4F7FC; /* 화살표 부분 배경색 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+
+.customoverlay .balloon-tail {
+  position: absolute;
+  bottom: -10px;
+  left: 50%; /* 왼쪽에서 50% 위치에 배치 */
+  transform: translateX(-50%); /* 꼬리의 너비의 절반을 왼쪽으로 이동시켜 중앙에 맞춤 */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white; /* 말풍선 전체 배경색과 동일하게 설정 */
+
+  filter: drop-shadow(0px 1px 2px #888);
+}
+
+.course-background{  
+  width: 100%;
+  position: relative;
+  top: 79px;  /* 배경 이미지 위치 */
+}
+
+.course-name-title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  word-break: keep-all;
+  padding: 0 30px;
+  font-size: 25px;
+}
+
+.course-tag-wrap{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 22px;
+}
+.course-tag-wrap > div{
+  display: flex;
+  margin: 0 10px;
+}
+.course-tag-textwrap > p{
+  font-size: 12px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+}
+.course-tag-textwrap > p:first-child{
+  font-size: 10px;
+}
+.corse-number{
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 15px;
+  background-color: #ED4956;
+  padding: 0 15px;
+  margin: 0;
+  border-radius: 20px;
+}
+.place-containers{
+  padding: 0 20px;
+}
+.course-title{
+  animation: slideUp 1s ease-out forwards; /* 1초 동안 애니메이션 적용 */
+  opacity: 1; /* 초기 상태를 설정 */
+}
+/* 애니메이션 정의 */
+@keyframes slideUp {
+  from {
+      transform: translateY(30px); /* 화면 아래에서 시작 */
+      opacity: 0; /* 투명도 0으로 시작 */
+  }
+  to {
+      transform: translateY(0); /* 원래 위치로 이동 */
+      opacity: 1; /* 투명도 1로 끝 */
+  }
+}

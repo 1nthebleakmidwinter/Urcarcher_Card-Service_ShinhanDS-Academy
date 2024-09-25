@@ -1,0 +1,113 @@
+@media (min-width: 992px) {
+    .col-lg-6 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+}
+
+.card {
+    box-shadow: none !important;
+}
+
+.card-body {
+    padding: 2rem 2.8rem !important;
+}
+
+.form-floating > .form-control {
+    height: calc(3rem + calc(var(--bs-border-width)* 2)) !important;
+    min-height: calc(3rem + calc(var(--bs-border-width)* 2)) !important;
+}
+
+.form-control {
+    border: 1px solid rgba(6, 74, 255, .25) !important;
+}
+
+.form-check {
+    width: 100%;
+    text-align: left;
+    align-self: center;
+
+    margin-top: 3%;
+}
+
+#agree {
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid rgba(71, 110, 255, .50);
+    border-radius: 50%;
+}
+
+.btn {
+    width: 100%;
+    background-color: #476EFF !important;
+
+    font-size: 100% !important;
+}
+
+.btn:hover {
+    background-color: #064AFF !important;
+    color: #fff !important;
+}
+
+.oauth {
+    margin-top: 3%;
+
+    color: #000 !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, .5) !important;
+}
+
+.logo {
+    width: 17px;
+    height: 17px;
+
+    margin-right: 3%;
+}
+
+
+.fc-1 {
+    float: left;
+    width: 35%;
+    margin-left: 5px;
+}
+
+.fc-1 > label {
+    margin-top: 4px;
+    margin-left: 3px;
+}
+
+.fc-2 {
+    margin-top: 4px;
+    float: right;
+    width: 60%;
+    text-align: right;
+}
+
+.fc-2 > * {
+    color: #777;
+}
+
+.fc-2 > label {
+    margin: 0 1%;
+}
+
+.wantsign {
+    margin-top: 15px;
+}
+
+.wantsign > span, button {
+    color: #476EFF;
+}
+
+.wantsign > button {
+    background-color: white;
+    border: 2px solid rgba(71, 110, 255, .50);
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.wantsign > button:hover {
+    background-color: #064AFF;
+    color: white;
+}

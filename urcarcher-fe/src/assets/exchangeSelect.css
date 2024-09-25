@@ -1,0 +1,197 @@
+.exchange_select_wrapper {
+    width: 100%;
+    height: 500px;
+    background-color: #EFF8FF;
+    /* background-color: #E5EBFF; */
+}
+
+.exchange_select_title {
+    width: 100%;
+    height: 60px;
+    padding-top: 35px;
+}
+
+.exchange_select_title h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+}
+
+.exchange_select_content {
+    width: 100%;
+    height: 40px;
+    margin-top: 60px;
+}
+
+.exchange_select_content p {
+    font-family: 'NanumSquareNeoBold';
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    color: #8F959E;
+}
+
+.exchange_select_card {
+    width: 52%;
+    height: 40%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.exchange_select_card img {
+    width: 100%;
+    height: 100%;
+}
+
+.exchange_select_money {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 275px;
+    bottom: 70px;
+}
+
+.exchange_select_money img {
+    width: 100%;
+    height: 100%;
+}
+
+.select_btn_wrapper {
+    font-family: 'NanumSquareNeoBold';
+    font-size: 15px;
+    width: 100%;
+    height: 60px;
+    margin-top: 30px;
+}
+
+.select_info_btn {
+    width: 140px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #CCCCCC;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.select_info_btn:hover {
+    transform: translateY(-2px);
+}
+
+.select_cur_btn {
+    width: 140px;
+    height: 50px;
+    margin-left: 20px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.select_cur_btn:hover {
+    transform: translateY(-2px);
+}
+
+.exchange_select_title2 {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 57px;
+    text-align: left;
+}
+
+.exchange_select_title2 h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+}
+
+.select_btn_wrapper2 {
+    font-family: 'NanumSquareNeoBold';
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.select_set_btn {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 7px;
+    border: 1px solid #476EFF;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 5px 10px 0px;
+}
+
+.select_set_btn p {
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.select_set_p {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    color: #476EFF;
+}
+
+.select_set_btn img {
+    position: relative;
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+}
+
+.select_set_btn:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.fly_card {
+    animation: fly 2.5s ease-in-out infinite;
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .exchange_select_wrapper {
+        height: 470px;
+    }
+
+    .exchange_select_money {
+        left: 246px;
+    }
+
+    .select_btn_wrapper {
+        margin-top: 30px;
+    }
+
+    .exchange_select_title2 {
+        margin-top: 35px;
+    }
+
+    .select_btn_wrapper2 {
+        margin-top:8px;
+    }
+    
+    .select_set_btn p {
+        font-size: 12.5px;
+    }
+
+    .exchange_select_card {
+        height: 37%;
+    }
+}

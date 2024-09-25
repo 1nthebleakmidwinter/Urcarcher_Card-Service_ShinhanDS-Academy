@@ -1,0 +1,73 @@
+.button {
+    margin-top: 300px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  
+    display: inline-block;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000; /* 지도 모달의 z-index */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content p {
+    margin-top: revert;
+    white-space: pre-line;
+}
+
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* 모달 컨텐츠가 다른 요소들 위에 표시되도록 설정 */
+}
+
+.close {
+    position: absolute;
+    top:7px;
+    right: 15px;
+    cursor: pointer;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 인증 결과 모달 추가 스타일 */
+.verification-modal {
+    z-index: 1100; /* 지도 모달보다 높은 z-index */
+}
+
+.verification-modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}

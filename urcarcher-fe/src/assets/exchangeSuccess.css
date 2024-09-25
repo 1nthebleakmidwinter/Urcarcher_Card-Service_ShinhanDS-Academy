@@ -1,0 +1,163 @@
+.ex_success_wrapper {
+    width: 100%;
+    height: 420px;
+    padding-top: 80px;
+    background-color: #EFF8FF;
+    /* background-color: #E5EBFF; */
+}
+
+.ex_success_card {
+    width: 50%;
+    height: 75%;
+    margin: 0 auto;
+    margin-top: -35px;
+    margin-left: 33%;
+}
+
+.ex_success_card img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fadeCoin {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade_coin {
+    animation: fadeCoin 1.5s ease-in-out forwards;
+}
+
+.ex_success_money {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 275px;
+    bottom: 70px;
+}
+
+.ex_success_money img {
+    width: 100%;
+    height: 100%;
+}
+
+.ex_success_title {
+    margin-top: 30px;
+}
+
+.ex_success_wrapper h4 {
+    font-family: 'NanumSquareNeoExtraBold';
+    line-height: 30px;
+}
+
+.ex_success_rate {
+    font-family: 'NanumSquareNeoExtraBold';
+    width: 85%;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    white-space: nowrap;
+}
+
+.ex_success_left_p {
+    width: 100px;
+    float: left;
+    text-align: left;
+    line-height: 25px;
+}
+
+.ex_success_right_p {
+    width: 200px;
+    float: right;
+    text-align: right;
+    line-height: 25px;
+}
+
+.ex_success_btn_wrapper {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 85%;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.success_info_btn {
+    width: 165px;
+    height: 50px;
+    float: left;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #CCCCCC;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.success_info_btn:hover {
+    transform: translateY(-2px);
+}
+
+.success_check_btn {
+    width: 165px;
+    height: 50px;
+    float: right;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.success_check_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .ex_success_wrapper {
+        height: 335px;
+    }
+
+    .ex_success_wrapper  {
+        padding-top: 50px;
+    }
+
+    .ex_success_title {
+        margin-top: 20px;
+    }
+
+    .ex_success_money {
+        left: 246px;
+    }
+
+    .success_info_btn, .success_check_btn {
+        width: 155px;
+    }
+
+    .ex_success_btn_wrapper {
+        margin-top: 35px;
+    }
+
+    .ex_success_btn_wrapper {
+        margin-top: 20px;
+    }
+
+    .ex_success_card {
+        margin-top: -20px;
+    }
+
+    .ex_success_rate  {
+        margin-top: 25px;
+    }
+
+    .ex_success_wrapper h4 {
+        line-height: 22px;
+        font-size: 18px;
+    }
+}

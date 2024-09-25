@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어카처</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            height: 100%;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-top: 2px green;
+            border-bottom: 1px gray;
+        }
+        h1 {
+            color: #333333;
+        }
+        p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .code {
+        	text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #1C58A6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 250px;
+            height: 75px;
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 30px;
+    		margin-bottom: 25px;
+        }
+        .footer {
+            text-align: center;
+            color: #999999;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+    	<img src='cid:image' alt="어카처" style="width: 25%; height: auto;"/>
+        <h1>예약 안내</h1>
+        <hr>
+        <p>안녕하세요. 어카처 팀입니다.</p>
+        <p>예약 안내 메일입니다.</p>
+        <div>
+        <p>[[${memberName}]]님, </p>
+        <p>[[${reservationDate}]]일 [[${reservationTime}]]에 [[${name}]] [[${seat}]] [[${people_num}]]매 예약하셨습니다.</p>
+        <p>예약 장소는 [[${location}]]입니다.</p>
+        </div>
+    </div>
+</body>
+</html>

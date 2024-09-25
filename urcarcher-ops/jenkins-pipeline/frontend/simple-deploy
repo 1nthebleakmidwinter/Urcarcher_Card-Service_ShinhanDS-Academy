@@ -1,0 +1,83 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-fe.git'
+            }
+            post {
+                success {
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'ls'
+            }
+        }
+        
+        stage('Load Properties'){
+            steps{
+                withCredentials([file(credentialsId: 'urcarcher-fe', variable:'urcarcherFe')]){
+                    script{
+                        sh 'cp $urcarcherFe ./.env'
+                        sh 'ls -a'
+                    }
+                }
+            }
+        }
+        stage('Docker Rm'){
+            steps{
+                script{
+                    try{
+                        sh """
+                        docker stop urcarcher-fe
+                        docker rm urcarcher-fe
+                        docker rmi -f urcarcher-fe
+                        """
+                    } catch(e) {
+                        echo 'Docker img or container do not exist.'
+                    }
+                }
+            }
+            
+            post {
+                success {
+                    sh 'echo "Docker Rm Success"'
+                }
+                failure {
+                    sh 'echo "Docker Rm Fail"'
+                }
+            }
+        }
+        
+        stage('MakeImage'){
+            steps{
+                sh 'docker build . -t urcarcher-fe'
+            }
+            
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh 'docker run --name urcarcher-fe -d -p 3000:80 --restart unless-stopped urcarcher-fe'
+            }
+
+            post {
+                success {
+                    echo 'success'
+                }
+
+                failure {
+                    echo 'failed'
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,128 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps { 
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-fe.git'
+            }
+            post {
+                success {
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'ls'
+            }
+        }
+        
+        stage('Load Properties'){
+            steps{
+                withCredentials([file(credentialsId: 'urcarcher-fe', variable:'urcarcherFe')]){
+                    script{
+                        sh 'cp $urcarcherFe ./.env'
+                        sh 'ls -a'
+                    }
+                }
+            }
+        }
+        
+        stage('Deploying By Blue-Green'){
+            environment{
+                TARGET_HOST = 'ubuntu@ip-172-31-4-127'
+            }
+            
+             steps {
+                sshagent (credentials: ['ec2-instance-ssh']) {
+                    sh """
+                        CUR_COLOR=\$(docker ps -q -f name=urcarcher-fe-blue)
+                        echo \$CUR_COLOR
+
+                        if [ -z \$CUR_COLOR ]
+                        then
+                            echo "green running."
+
+                            NXT_COLOR=blue
+                            PRV_COLOR=green
+
+                            NXT_PORT=3000
+                            PRV_PORT=3001
+
+                        else
+                            echo "blue running."
+
+                            NXT_COLOR=green
+                            PRV_COLOR=blue
+
+                            NXT_PORT=3001
+                            PRV_PORT=3000
+
+                        fi
+
+                        docker build . -t urcarcher-fe-\$NXT_COLOR
+
+                        docker run --name urcarcher-fe-\$NXT_COLOR -d -p \$NXT_PORT:80 --restart unless-stopped urcarcher-fe-\$NXT_COLOR
+
+                        CNTNR_IP_ADD=\$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" urcarcher-fe-\$NXT_COLOR) 
+                        
+                        set +e
+                        set -o
+
+                        for cnt in `seq 1 20`
+                        do
+                            echo "Now checking next color..."
+                                
+                            UP=\$(curl -s -o /dev/null -l -w "%{http_code}" http://\${CNTNR_IP_ADD}:80 | grep '200')
+
+                            if [ -z \$200 ]
+                            then
+                                echo "Not yet..."
+                            else
+                                break
+                            fi
+
+                            echo "wait 5 seconds..."
+                            sleep 5
+                        done
+
+                        if [ \$cnt -eq 20 ]
+                        then
+                            echo "deployment failed."
+
+                            docker stop urcarcher-fe-\$NXT_COLOR
+                            docker rm urcarcher-fe-\$NXT_COLOR
+                            docker rmi -f urcarcher-fe-\$NXT_COLOR
+
+                            exit 1
+                        fi
+
+                        echo "Next servers started."
+
+                        echo "Chainging nginx server port..."
+
+                        echo "nginx reloading..."
+
+                        ssh -o StrictHostKeyChecking=no \${TARGET_HOST} "
+                        sudo sed -i "s/\${PRV_COLOR}/\${NXT_COLOR}/" /etc/nginx/conf.d/service_url.inc
+                        sudo service nginx reload
+                        "
+
+                        echo "Prev servers down."
+
+                        docker stop urcarcher-fe-\$PRV_COLOR
+                        docker rm urcarcher-fe-\$PRV_COLOR
+                        docker rmi -f urcarcher-fe-\$PRV_COLOR
+
+                        exit 0
+                    """
+                }
+
+            }
+        }
+    }
+}

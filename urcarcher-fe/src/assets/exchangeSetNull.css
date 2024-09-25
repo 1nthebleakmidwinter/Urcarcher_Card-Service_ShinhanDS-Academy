@@ -1,0 +1,101 @@
+.ex_set_null_wrapper {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 120px;
+}
+
+.ex_set_chart {
+    width: 90%;
+    height: 65%;
+    margin: 0 auto;
+}
+
+.ex_set_chart img {
+    width: 100%;
+    height: 100%;
+}
+
+.ex_set_money {
+    width: 70%;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+    left: 65px;
+    bottom: 160px;
+}
+
+.ex_set_money img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ex_set_null {
+    width: 100%;
+    height: 50px;
+    margin-top: 60px;
+}
+
+.ex_set_null p {
+    color: #CCCCCC;
+    font-size: 16px;
+    line-height: 70px;
+}
+
+.exchange_set_btn_wrapper {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.exchange_set_btn {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #476EFF;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.exchange_set_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .ex_set_chart {
+        width: 80%;
+        height: 50%;
+    }
+
+    .ex_set_money {
+        left: 55px;
+        bottom: 140px;
+    }
+
+    .ex_set_money img {
+        height: 85%;
+    }
+
+    .ex_set_null {
+        margin-top: 20px;
+    }
+
+    .ex_set_null p {
+        font-size: 14px;
+    }
+
+    .exchange_set_btn_wrapper {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .ex_set_null_wrapper {
+        margin-top: 70px;
+    }
+}

@@ -1,0 +1,143 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-be.git'
+            }
+
+            post {
+                success {
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }
+        }
+
+        stage('Load Yml') {
+            steps {
+                withCredentials([file(credentialsId: '7895a090c971c2b84344', variable: 'webConfigFile')]) {
+                    script{
+                        sh 'cp $webConfigFile src/main/resources/application.yml'
+                    }
+                }
+            }
+        }
+
+        stage('Gradle Build') {
+            steps {
+                sh 'chmod +x gradlew'
+                sh  './gradlew clean build'
+
+                sh 'ls -al ./build'
+            }
+            post {
+                success {
+                    echo 'gradle build success'
+                }
+
+                failure {
+                    echo 'gradle build failed'
+                }
+            }
+        }
+
+        stage('Deploying By Blue-Green') {
+            environment {
+                TARGET_HOST = 'root@ip-172-31-11-34'
+            }
+            steps {
+                sshagent (credentials: ['cd65a25b0ee656aeba29']) {
+                    sh """
+                        CUR_COLOR=\$(docker ps -q -f name=urcarcher-be-blue)
+                        echo \$CUR_COLOR
+
+                        if [ -z \$CUR_COLOR ]
+                        then
+                            echo "green running."
+
+                            NXT_COLOR=blue
+                            NXT_COLOR_1=blue1
+                            PRV_COLOR=green
+                            PRV_COLOR_1=green1
+
+                            NXT_PORT_1=8080
+                            PRV_PORT_1=8082
+
+                        else
+                            echo "blue running."
+
+                            NXT_COLOR=green
+                            NXT_COLOR_1=green1
+                            PRV_COLOR=blue
+                            PRV_COLOR_1=blue1
+
+                            NXT_PORT_1=8082
+                            PRV_PORT_1=8080
+
+                        fi
+
+                        docker build . -t inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+
+                        docker run --name urcarcher-be-\$NXT_COLOR_1 -d -p \$NXT_PORT_1:8080 --restart unless-stopped inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+
+                        CNTNR_IP_ADD=\$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" urcarcher-be-\$NXT_COLOR_1)
+
+                        set +e
+                        set -o
+
+                        for cnt in `seq 1 20`
+                        do
+                            echo "Now checking next color..."
+
+                            UP=\$(curl -s http://\${CNTNR_IP_ADD}:8080/actuator/health | grep 'UP')
+
+                            if [ -z \$UP ]
+                            then
+                                echo "Not yet..."
+                            else
+                                break
+                            fi
+
+                            echo "wait 5 seconds..."
+                            sleep 5
+                        done
+
+                        if [ \$cnt -eq 20 ]
+                        then
+                            echo "deployment failed."
+
+                            docker stop urcarcher-be-\$NXT_COLOR_1
+                            docker rm urcarcher-be-\$NXT_COLOR_1
+                            docker rmi -f inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+
+                            exit 1
+                        fi
+
+                        echo "Next servers started."
+
+                        echo "Chainging nginx server port..."
+
+                        sed -i "s/\${PRV_PORT_1}/\${NXT_PORT_1}/" /etc/nginx/sites-available/urcarcher.conf
+
+                        echo "nginx reloading..."
+
+                        ssh -o StrictHostKeyChecking=no \${TARGET_HOST} "service nginx reload"
+
+                        echo "Prev servers down."
+
+                        docker stop urcarcher-be-\$PRV_COLOR_1
+                        docker rm urcarcher-be-\$PRV_COLOR_1
+                        docker rmi -f inthebleakmidwinter/urcarcher-be-\$PRV_COLOR
+
+                        exit 0
+                    """
+                }
+
+            }
+        }
+    }
+}

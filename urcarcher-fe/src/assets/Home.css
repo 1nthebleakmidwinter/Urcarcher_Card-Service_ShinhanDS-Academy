@@ -1,0 +1,246 @@
+.hidden{
+    display: none;
+}
+.card-signup a, .my-point a{
+    text-decoration: none;
+    color: #333;
+}
+.card-signup a:hover, .my-point a:hover{
+    text-decoration: none;
+}
+.home-logo{
+    margin: 0 auto;
+}
+.home-container{
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-top: 20px;
+    width: 85%;
+    height: 757px;
+    overflow-y: scroll;
+    padding-left: 3px;
+    padding-right: 3px;
+    position: relative;
+}
+.home-container > h5{
+    text-align: left;
+}
+.home-container > h5 > a{
+    text-decoration: none;
+    color: #333;
+}
+.main-content > div{
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 3px #eee; /* 그림자 */
+}
+.card-type-wrap{
+    height: 190px;
+    background-color: #476EFF;
+    position: relative;
+}
+.card-type-wrap > p{
+    color: #F4F7FC;
+    margin: 0;
+    /* font-weight: bold; */
+}
+p.card-type-text{
+    text-align: left;
+    padding: 15px 0 0 15px;
+}
+span.type{
+    font-size: 12px;
+    background-color: #F7F7F7;
+    color: #333;
+    border-radius: 8px;
+    padding: 3px 5px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.amount-used, .card-signup, .my-point{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.amount-used{
+    height: 70px;
+    line-height: 70px;
+    background-color: #F4F7FC;
+}
+.amount-used > p, .card-signup > p, .home-rate-list > p, .my-point > p {
+    font-weight: bold;
+}
+.card-signup{
+    height: 50px;
+    line-height: 50px;
+    background-color: #DCE2FF;
+}
+
+.my-point{
+    height: 50px;
+    line-height: 50px;
+    background-color: #FFFFD2;
+}
+.amount-used-no{
+    padding: 0 10px;
+    height: 70px;
+    line-height: 70px;
+    background-color: #F4F7FC;
+    font-weight: bold;
+}
+.amount-used-no> p > a{
+    text-decoration: none;
+    color: #707070;
+}
+.home-content-box{
+    margin-top: 30px;
+}
+.service-list{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.service-list > li >a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+@media screen and (max-Width: 414px) { 
+    .service-list{
+        justify-content: space-between;
+    }
+    .service-list > li >a > img{
+        width: 80px;
+        height: 80px;
+    }
+}
+.service-list > li >a > img:hover{
+    transform: scale3d(0.9, 0.9, 1.2);
+}
+.home-title-wrap{
+    position: relative;
+}
+.home-title{
+    text-align: left;
+    color: #414042;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.rate-date{
+    position: relative;
+    padding: 0;
+    margin: 0;
+   
+}
+p.card_balance{
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+    font-size: 25px;
+    word-break: keep-all;
+}
+p.card-charge{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-color: #F7F7F7;
+    color: #333;
+    padding: 0 10px;
+    border-radius: 15px;
+    height: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.home-rate-list{
+    margin: 0;
+    padding: 0;
+}
+.home-rate-list > li{
+    width: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    line-height: 50px;
+    box-sizing: border-box;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+.country{
+    font-size: 15px;
+    font-weight: bold;
+}
+.countryIcon{
+    width: 30px;
+    height: 30px;
+}
+.rate-txt{
+    color: #476EFF;
+    font-weight: bold;
+}
+.mycard-expiration-date{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+.mycard-name{
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+}
+.member-sigup{
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F4F7FC;
+    border-radius: 15px;
+    padding: 0 10px;
+    height: 27px;
+    line-height: 27px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.member-sigup > a {
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+.member-sigup > a:hover {
+    text-decoration: none;
+}
+.member-sigup:hover{
+    background-color: #002e7c;
+}
+.member-sigup:hover a{
+    color: #fff;
+}
+.card_balance-no{
+    white-space: nowrap;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+    font-size: 20px;
+    width: 80%;
+    white-space: normal;
+}
+
+.currentExchange{
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    line-height: 25px;
+}
+@media screen and (max-Width: 414px) { /* iPhone XR */
+    .greeting-text{
+        font-size: 14px;
+    }
+}

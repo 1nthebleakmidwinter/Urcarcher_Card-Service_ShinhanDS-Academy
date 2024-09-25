@@ -1,0 +1,120 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-be.git'
+            }
+
+            post {
+                success {
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }
+        }
+
+        stage('Load Properties') {
+            steps {
+                withCredentials([file(credentialsId: '7895a090c971c2b84344', variable: 'webConfigFile')]) {
+                    script{
+                        sh 'ls -al src/main'
+                        // sh 'mkdir src/main/resources'
+                        sh 'ls -al src/main'
+                        sh 'cp $webConfigFile src/main/resources/application.yml'
+                    }
+                }
+            }
+        }
+
+        stage('Load sslKey') {
+            steps {
+                withCredentials([file(credentialsId: 'b5a48c66d49cd19a60c8', variable: 'keyFile')]) {
+                    script{
+                        sh 'ls -al src/main'
+                        // sh 'mkdir src/main/resources'
+                        sh 'ls -al src/main'
+                        sh 'cp $keyFile src/main/resources/keystore.p12'
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'chmod +x gradlew'
+                sh  './gradlew clean build'
+
+                sh 'ls -al ./build'
+            }
+            post {
+                success {
+                    echo 'gradle build success'
+                }
+
+                failure {
+                    echo 'gradle build failed'
+                }
+            }
+        }
+        stage('Docker Rm') {
+            steps {
+                script {
+                    try {
+                        sh """
+                        docker stop urcarcher-be
+                        docker rm urcarcher-be
+                        docker rmi -f inthebleakmidwinter/urcarcher-be
+                        """
+                    } catch(e) {
+                        echo 'Docker img or container do not exist.'
+                    }
+                }
+            }
+
+            post {
+                success {
+                    sh 'echo "Docker Rm Success"'
+                }
+                failure {
+                    sh 'echo "Docker Rm Fail"'
+                }
+            }
+        }
+
+        stage('Dockerizing'){
+            steps{
+                sh 'echo " Image Bulid Start"'
+                sh 'docker build . -t inthebleakmidwinter/urcarcher-be'
+            }
+            post {
+                success {
+                    sh 'echo "Bulid Docker Image Success"'
+                }
+
+                failure {
+                    sh 'echo "Bulid Docker Image Fail"'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker run --name urcarcher-be -d -p 8080:8080 --restart unless-stopped inthebleakmidwinter/urcarcher-be'
+            }
+
+            post {
+                success {
+                    echo 'success'
+                }
+
+                failure {
+                    echo 'failed'
+                }
+            }
+        }
+    }
+}

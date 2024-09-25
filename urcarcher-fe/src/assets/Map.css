@@ -1,0 +1,442 @@
+.inner{
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.mapContainer{
+    margin: 0 auto;
+}
+.kakaomap-wrap{
+    position: relative;
+    height: 100vh;
+}
+.kakaomap-wrap> h1{
+    /* padding: 0; */
+    /* margin: 0; */
+}
+.cate-btn-wrap{
+    position: absolute;
+    /* top: 10px; */
+    right: 20px;
+    padding-top: 20px;
+    z-index: 50;
+}
+
+.cate-btn-wrap>button{
+    cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: 20px;
+    margin: 10px 0;
+    padding: 8px 0;
+    background-color: #333;
+    color: #ccc;
+    font-size: 15px;
+    font-weight: bold;
+    width: 120px;
+    box-sizing: border-box;
+}
+.cate-btn-wrap>button.active{
+    background-color: #F77777;
+    color: #fff;
+}
+
+/* 모달의 배경 (모달이 열릴 때 배경을 흐리게 만듭니다) */
+.mymap-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+  
+.mymap-modal-contents {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  z-index: 80;
+  position: relative;
+}
+.mymap-modal-x-btn{
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  background-color: #F77777;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.mymaphome-wrap{
+  margin: 0 auto;
+  /* height: 763px; */
+  height: 100vh;
+  background: linear-gradient(#F4F7FC, #D6EBFF);
+  font-family: 'NanumSquareNeo',sans-serif ;
+  position: relative;
+}
+.maphome-btn{
+  margin-top: 60px;
+}
+
+/* 버튼 스타일 공통 */
+.mymap-btn{
+  cursor: pointer;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background-color: #476EFF;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.mymap-btn:hover{
+  background-color: #064AFF;
+}
+
+.maphome-btn > button{
+  cursor: pointer;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background-color: #476EFF;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.maphome-btn > button:hover{
+  background-color: #064AFF;
+}
+.maphome-btn > span{
+  font-size: 14px;
+  color: #656565;
+}
+
+.maphome_textwrap > p{
+  margin: 0;
+}
+.maphome_textwrap > p{
+  font-size: 34px;
+  font-family: 'NanumSquareNeoExtraBold', sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+.maphome_textwrap > p:last-child{
+  font-size: 50px;
+  color: #476EFF;
+}
+
+.mymaphome-wrap > div{
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+  /* margin-bottom: -70px; */
+}
+.maphome_textwrap{
+  animation: slideUp 1s ease-out; /* 1초 동안 애니메이션 적용 */
+  opacity: 1; /* 초기 상태를 설정 */
+}
+/* 애니메이션 정의 */
+@keyframes slideUp {
+  from {
+      transform: translateY(30px); /* 화면 아래에서 시작 */
+      opacity: 0; /* 투명도 0으로 시작 */
+  }
+  to {
+      transform: translateY(0); /* 원래 위치로 이동 */
+      opacity: 1; /* 투명도 1로 끝 */
+  }
+}
+.current-location-btn{
+  /* position: absolute; */
+  /* right: 10px;
+  bottom: 100px; */
+  width: 58px;
+  height: 58px;
+  background-color: #fff;
+  z-index: 100;
+  border-radius: 50%;
+  line-height: 58px;
+}
+.current-location-btn>button{
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.current-location-btn>button > img{
+  height: 100%;
+}
+
+/* MyCategoryRank.jsx */
+.inner{
+  max-width: 360px;
+}
+.top-category::before {
+  content: '🏆';  /* 예: 트로피 이모지 */
+  margin-right: 8px;  /* 이모지와 텍스트 사이의 간격 조정 */
+}
+.categoryRank-wrap{
+  /* height: 763px; */
+  height: 790px;
+  box-sizing: border-box;
+  position: relative;
+}
+.categoryRank-title{
+  padding: 40px 0 30px;
+  line-height: 1.5;
+}
+.categoryRank-title p,
+.categoryRank-title h3
+{
+  margin: 0;
+}
+.categoryRank-title p{
+  font-size: 14px;
+  color: #ccc;
+}
+.categoryRank-title h3{
+  font-size: 24px;
+  letter-spacing: -1px;
+  animation: slideUp 1s ease-out; /* 1초 동안 애니메이션 적용 */
+  opacity: 1; /* 초기 상태를 설정 */
+  word-break: keep-all;
+}
+.rank-list-wrap{
+  height: 400px;
+  overflow-y: scroll;
+}
+.rank-list{
+  padding: 0;
+}
+.rank-list>li{
+  background-color: #F5F5F5;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 25px 0;
+  height: 90px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.rank-list li {
+  opacity: 0;
+  transform: translateY(70px);
+  transition: opacity 0.5s ease, transform 1s ease;
+}
+
+.rank-list li.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rank-list>li>div{
+  display: flex;
+  justify-content: space-between;
+  line-height: 70px;
+  padding: 0 15px;
+}
+.rank-list>li>div p{
+  font-weight: bold;
+  font-size: 18px;
+}
+.ranklist-btn{
+  position: relative;
+  bottom: 30px
+}
+.rank-list>li.first{
+  background-color: #F4F7FC;
+}
+.rank-list>li.first p{
+  color: #064AFF;
+}
+.kakaomap-wrap>div:nth-child(2){
+  height: 100vh !important;
+}
+.mymap-btn-wrap{  /* 지도 하단 버튼 wrapper */
+  position: absolute;
+  bottom: 100px;
+  right: 15px;
+  z-index: 100;
+}
+.mymap-btn-wrap > div{
+  margin: 13px 0 0;
+}
+@media only screen and (max-width: 390px) {
+  .mymap-btn-wrap {
+      /* bottom: 30px; */
+      bottom: 100px;
+  }
+}
+.storeRank-link{
+  position: relative;
+  /* position: absolute; */
+  /* right: 10px;
+  bottom: 30px;
+  z-index: 100; */
+}
+/* BestStoreList.jsx */
+.top-store-list{
+  padding: 0;
+  height: 600px;
+  overflow-y: scroll;
+}
+.top-store-list  li{
+  /* border: 1px solid #ccc; */
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin: 10px 0;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+}
+.top-store-list li.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.url-preview{
+  position: relative;
+}
+.top-store-list  li>.rank-wrap{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  padding: 0 10px;
+  color: #fff;
+} 
+p.rank{
+  font-size: 20px;
+}
+.rankTitle>h5{
+  color: #476eff;
+}
+.store-info-text{
+  text-align: left;
+  margin: 10px 0 20px;
+}
+.store-info-text > div{
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  line-height: 45px;
+}
+.store-info-text > p{
+  margin: 0;
+}
+.store-info-text  p{
+  /* padding: 0 10px; */
+}
+p.name{
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+}
+p.phone{
+  color: seagreen;
+  font-size: 12px;
+}
+.storedetail-btn>a{
+  font-size: 8px;
+  color: #333;
+}
+.rankTitle{
+  display: flex;
+  justify-content: space-between;
+}
+/* NoResult.jsx */
+.noReslut-wrap{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.noReslut-wrap-bs{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 400px;
+}
+
+
+@media (max-width: 414px) { /* iPhone XR */
+  .mymaphome-wrap{
+    height: 130vh;
+  }
+  .maphome_textwrap > p {
+    font-size: 20px;
+  }
+  .maphome_textwrap > p:last-child {
+    font-size: 48px;
+  }
+  .map-img-wrap > img{
+    width: 200px;
+    height: 200px;
+  }
+  .mymaphome-wrap > div {
+    top: 35%;
+  }
+}
+@media screen and (max-Width: 375px) { /* iPhone SE */
+  .maphome_textwrap > p:last-child {
+    font-size: 38px;
+  }
+}
+
+.call-phone-num > a{
+  color: #476EFF;
+}
+.look-detail-btn{
+  color: #fff;
+  background-color: #F77777;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+.look-detail-btn:hover{
+  text-decoration: none;
+}
+.hereclick{
+  opacity: 0;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #333333bf;
+  padding: 0;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 30px;
+  box-sizing: border-box;
+}

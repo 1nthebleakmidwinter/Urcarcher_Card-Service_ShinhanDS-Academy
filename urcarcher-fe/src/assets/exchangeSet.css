@@ -1,0 +1,23 @@
+.exchange_set_wrapper {
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.exchange_set_wrapper h4 {
+    margin: 0;
+    padding: 0;
+    line-height: 40px;
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .exchange_set_wrapper {
+        margin-top: 35px;
+    }
+
+    .exchange_set_wrapper h4 {
+        font-size: 18px;
+        line-height: 35px;
+    }
+}

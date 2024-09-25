@@ -1,0 +1,112 @@
+.prod-container{
+    padding: 100px 0 0;
+}
+.prod-container > h2,
+.prod-container > p{
+    animation: slideUp 1s ease-in;
+    opacity: 1; 
+    word-break: keep-all;
+}
+.prod-container > h2{
+    font-family: 'NanumSquareNeoExtraBold';
+    /* padding: 0 30px; */
+}
+@media screen and (max-Width: 414px) { /* iPhone XR */
+    .prod-container > h2{
+        padding: 0 30px;
+    }
+}
+.prod-map {
+    width: 100%;
+    margin-top: 60px;
+    position: relative;
+}
+.prod-map > img{
+    width: 350px;
+}
+.imgbox {
+    position: absolute;
+    animation: slideUp 1.5s ease-in-out;
+    opacity: 1; 
+}
+.imgbox:hover{
+    transform: translateY(-7px);
+}
+.imgbox img {
+    cursor: pointer;
+}
+.imgbox1{ /*망개떡*/
+    /* bottom: 290px; */
+    bottom: 34%;
+    left: 180px;
+}
+.imgbox2{ /* 알밤빵 */
+    top: 34%;
+    left: 28%;
+}
+.imgbox3{  /*잣한과*/
+    /* top: 200px; */
+    top: 26%;
+    left: 37%;
+}
+.imgbox4{  /*사과빵*/
+    right: 50px;
+    bottom: 52%;
+    z-index: 10;
+}
+.imgbox5{  /*비빔빵*/
+    top: 470px;
+    left: 150px;
+}
+
+.imgbox6{  /*생크림찹쌀떡*/
+    top: 400px;
+    left: 8%;
+}
+
+.imgbox7{  /*양양샌드*/
+    top: 28%;
+    right: 20%;
+}
+.imgbox8{  /*황남빵*/
+    bottom: 410px;
+    right: 12%;
+}
+.imgbox9{  /*시루*/
+    /* bottom: 500px;
+    right: 100px; */
+    bottom: 53%;
+    right: 20%;
+}
+.imgbox10{  /*마음샌드*/ 
+    bottom: 22%;
+    left: 23%;
+}
+.imgbox11{ /*무등산수박커피*/ 
+    bottom: 33%;
+    left: 10%;
+}
+.prod-text{
+    font-size: 18px;
+    font-weight: bold;
+    color: #a3a3a3;
+}
+/* 애니메이션 정의 */
+@keyframes slideUp {
+    from {
+        transform: translateY(10px); /* 화면 아래에서 시작 */
+        opacity: 0; /* 투명도 0으로 시작 */
+    }
+    to {
+        transform: translateY(0); /* 원래 위치로 이동 */
+        opacity: 1; /* 투명도 1로 끝 */
+    }
+}
+.prod-map-exp{
+    padding: 0 50px;
+    text-align: left;
+    margin: 30px 0;
+}
+.prod-map-exp > p{
+    font-size: 15px;
+}

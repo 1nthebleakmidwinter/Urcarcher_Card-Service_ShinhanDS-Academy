@@ -1,0 +1,232 @@
+/* 진행바 */
+.progress-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 50px;
+    margin-top: 100px;
+}
+
+.progress-bar-stage {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.stage-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.stage-divider {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ccc;
+    margin-left: -15px;
+    z-index: 0;
+}
+
+.completed .stage-icon {
+    background-color: #007bff;
+    color: white;
+}
+
+.stage-icon span {
+    display: block;
+    font-size: 16px;
+}
+
+.divider-completed {
+    background-color: #007bff;
+}
+
+.arrow-button {
+    position: absolute !important;
+    top: 40% !important;
+    transform: translateY(-50%) !important;
+    color: rgb(88, 109, 194) !important;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 3rem;
+    line-height: 40px;
+    pointer-events: none; /* 클릭 이벤트 비활성화 */
+}
+
+  
+  .arrow-left {
+    left: -28px;
+  }
+  
+  .arrow-right {
+    right: -28px;
+  }
+  
+
+
+/* 클릭시 outline 제거 */
+.flickity-slider .is-pointer-down, 
+.flickity-slider .flickity-prev-next-button:focus, 
+.flickity-slider .flickity-prev-next-button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+/* focus 상태에서 생기는 테두리 제거 */
+.flickity-slider .is-pointer-down:focus-visible {
+    outline: none;
+}
+
+/* 불필요한 테두리 및 그림자 제거 */
+.flickity-slider .carousel-cell:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 전체적으로 focus 상태에서 생기는 테두리 제거 */
+* {
+    outline: none !important;
+}
+
+
+.arrow-button {
+    position: absolute;
+    top: 18% !important;
+    transform: translateY(-40%);
+    background-color: transparent !important;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 4rem;
+    line-height: 40px;
+    pointer-events: none; /* 클릭 이벤트 비활성화 */
+}
+
+.arrow-left {
+    left: -28px;
+}
+
+.arrow-right {
+    right: -28px;
+}
+
+/* 클릭시 outline 제거 */
+.flickity-slider .is-pointer-down,
+.flickity-slider .flickity-prev-next-button:focus,
+.flickity-slider .flickity-prev-next-button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* focus 상태에서 생기는 테두리 제거 */
+.flickity-slider .is-pointer-down:focus-visible {
+    outline: none;
+}
+
+/* 불필요한 테두리 및 그림자 제거 */
+.flickity-slider .carousel-cell:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 전체적으로 focus 상태에서 생기는 테두리 제거 */
+* {
+    outline: none !important;
+}
+
+/* card-slide */
+.flickity-button {
+    background: transparent;
+    display: none;
+}
+
+.flickity-button:hover {
+    background: transparent;
+    color: transparent;
+}
+
+.flickity-prev-next-button {
+    width: 100px;
+    height: 100px;
+}
+
+.flickity-button-icon {
+    fill: white;
+}
+
+.flickity-button:disabled {
+    display: none;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* 부모 컨테이너에서 overflow 문제 해결 */
+}
+
+.carousel {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    max-width: 100%; /* 전체 폭에 맞추도록 수정 */
+    height: auto; /* 높이를 auto로 설정하여 요소 크기에 따라 조정되도록 함 */
+    overflow: visible; /* 자식 요소가 짤리지 않도록 설정 */
+}
+
+.carousel-cell {
+    margin-top: 15px;
+    margin-right: 35px;
+    margin-bottom: 10px;
+    float: right;
+    max-width: 201px; /* 이미지를 포함할 수 있도록 최대 폭 설정 */
+    width: 100%;
+    height: 335px; /* 높이를 auto로 설정하여 이미지 비율에 따라 조정되도록 함 */
+    border-radius: 15px;
+    counter-increment: carousel-cell;
+    transition: all 0.3s ease;
+    opacity: 0.3;
+    background: #B9B9B9;
+    filter: blur(6px);
+}
+
+.carousel-cell.is-selected {
+    filter: blur(0);
+    opacity: 1;
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.carousel-cell .p {
+    border-radius: 15px;
+    width: 100%;
+    height: auto; /* 이미지 높이 자동 조정 */
+    counter-increment: carousel-cell;
+}
+
+/* 미디어 쿼리: 화면 크기에 따라 레이아웃 조정 */
+@media (max-width: 768px) {
+    .carousel-cell {
+        margin-right: 15px; /* 작은 화면에서 간격 축소 */
+        transform: none; /* 작은 화면에서는 스케일 효과 제거 */
+    }
+    .carousel {
+        width: 100%; /* 작은 화면에서 가로폭을 100%로 설정 */
+    }
+}

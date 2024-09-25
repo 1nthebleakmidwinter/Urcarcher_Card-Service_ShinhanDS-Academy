@@ -1,0 +1,28 @@
+@use "sass:math";
+
+// All the imports happen here
+
+// functions.scss - Bootstrap functions
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+//#rd party css
+@import "theme/3rd-party";
+
+// your variables + overrides of Bootstrap variables
+@import "user/user-variables";
+
+// custom variables + overrides of Bootstrap variables for this theme
+@import "theme/variables";
+@import "theme/utilities";
+
+// bootstrap main
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/vanillajs-datepicker/dist/css/datepicker-bs4";
+// theme components
+@import "theme/theme";
+
+// your components
+@import "user/user";
+
+

@@ -1,0 +1,286 @@
+.realtime hr {
+    margin: 0 !important;
+}
+
+.realtime ul {
+    list-style: none;
+
+    display: block;
+    list-style-type: disc;
+
+    /* 추가 */
+    margin-top: 15px;
+    margin-bottom: 270px !important;
+}
+
+.realtime table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+}
+
+.realtime tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.mainlist-article {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.mainlist-list {
+    padding: 4px 20px;
+}
+
+.mainlist-list li {
+    box-sizing: border-box;
+    float: left;
+    width: 47%;
+    text-align: left;
+    margin: 8px 5px;
+    /* padding: 5px 5px; */
+    
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+        0 2px 2px rgba(0, 0, 0, 0.12),
+        0 4px 4px rgba(0, 0, 0, 0.12),
+        0 8px 8px rgba(0, 0, 0, 0.12),
+        0 16px 16px rgba(0, 0, 0, 0.12); */
+
+    /* 추가 */
+    height: 110px;
+    padding: 15px;
+    border: 1px solid #476EFF;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+/* 추가 */
+.mainlist-list span {
+    line-height: 27px;
+}
+
+.mainlist-itemname {
+    /* font-size: 14px; */
+    /* line-height: 18px; */
+    /* display: block; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* font-weight: 400; */
+    color: #111;
+    /* letter-spacing: -.3px; */
+
+    /* 추가 */
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 16px;
+}
+
+.mainlist-itemprice {
+    font-weight: 600;
+    font-size: 23px;
+    /* line-height: 26px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* display: block; */
+    /* padding-bottom: 2px; */
+    /* color: #111; */
+    letter-spacing: -.3px;
+
+    /* 추가 */
+    color: #476EFF;
+}
+
+.mainlist-itemtime {
+    font-size: 11px;
+    /* line-height: 16px; */
+    /* display: block; */
+    /* padding-top: 2px; */
+    color: #878787;
+    letter-spacing: -.3px;
+    font-family: 'NanumSquareNeoBold';
+}
+
+.tableArea {
+    position: relative;
+    padding: 8px 0;
+    background-color: #fff;
+    letter-spacing: -.3px;
+    height: 420px;
+    overflow-y: scroll;
+
+    /* 추가 */
+    font-family: 'NanumSquareNeoBold';
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.tableArea table {
+    text-align: right;
+    letter-spacing: -.3px;
+}
+
+.tableArea td {
+    font-weight: 500;
+    font-size: 18px;
+    /* line-height: 22px; */
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    vertical-align: middle;
+}
+
+.tableArea tr:first-child td {
+    border-top-color: transparent;
+}
+
+.tableArea td:first-child {
+    text-align: left;
+}
+
+.tableName {
+    /* display: block; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    /* 추가 */
+    width: 190px;
+}
+
+.tableTime {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* display: block; */
+    color: #aaa;
+    white-space: nowrap;
+
+    /* 추가 */
+    width: 160px;
+    margin: 0;
+}
+
+.standard-round {
+    /* color: #097df3; */
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -.3px;
+    white-space: nowrap;
+}
+
+
+.standard-round-box {
+    display: inline-block;
+    min-width: 60px;
+    padding: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    /* line-height: 32px; */
+    color: #000;
+    /* background-color: #909aab; */
+    vertical-align: top;
+    text-align: center;
+
+    /* 추가 */
+    font-size: 12px;
+}
+
+#search {
+    border: none !important;
+    display: inline-block !important;
+    width: 90%;
+
+    margin-left: 30px;
+}
+
+.reading {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+/* 추가 */
+.mainlist-search-box {
+    width: 85%;
+    height: 30px;
+    margin: 0 auto;
+    border-bottom: 1px solid #CCCC;
+}
+
+.mainlist-text-box {
+    width: 90%;
+    height: 90%;
+
+    /* 추가 */
+    font-family: 'NanumSquareNeoBold';
+}
+
+.mainlist-text-box:focus {
+    padding-left: 10px;
+    transition: 0.4s;
+}
+
+/* 추가 */
+.flag_img_wrapper {
+    width: 135px;
+    height: 40px;
+    display: flex;
+}
+
+.flag_img {
+    width: 20%;
+    height: 68%;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.table_flag_img_wrapper {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+}
+
+.table_flag_img_box {
+    width: 10%;
+    height: 15%;
+    margin-right: 5px;
+}
+
+.table_flag_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainlist_text_wrapper {
+    width: 100%;
+    height: 38px;
+    margin-top: -10px;
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .mainlist-itemprice {
+        font-size: 20px;
+    }
+
+    .tableName {
+        font-size: 14px;
+    }
+
+    .tableArea td {
+        font-size: 13px;
+    }
+
+    .flag_img_wrapper {
+        width: 133px;
+    }
+}

@@ -1,0 +1,227 @@
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        /* width: 40% !important; */
+    }
+}
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        /* width: 40% !important; */
+    }
+}
+.col-md-6 {
+  width: 48% !important;
+}
+/* 공통 스타일 */
+.reserve-contents {
+    /* padding: 20px;
+    font-family: Arial, sans-serif; */
+  }
+  
+  /* 제목 스타일 */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* 버튼 스타일 */
+  .my-btn {
+    cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background-color: #476EFF;
+    color: #fff;
+    font-size: 20px;
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  /* 리스트 래퍼 스타일 */
+  .reserve-list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    /* height: 800px; */
+    height: 60vh;
+    overflow-y: scroll;
+    padding: 0 30px;
+  }
+  .reserve-list-wrap >div>div{
+    padding: 0;
+    border-radius: 30px;
+
+  }
+  /* 카드 레이아웃 스타일 */
+  .reserve-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* width: 300px; */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* 카드 이미지 스타일 */
+  .reserve-card img {
+    width: 100%;
+    height: 250px;
+  }
+  
+  /* 카드 내용 스타일 */
+  .reserve-card-body-box {
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    height: 150px;
+  }
+  .reserve-card-body-box p{
+   margin: 0;
+  }
+  .reserve-card-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: keep-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* 2줄 까지 */
+    -webkit-box-orient: vertical;
+  }
+  
+  .reserve-card-subtitle {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #6c757d;
+  }
+  
+  .reserve-card-text {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  .reserve-card-text.date{
+    font-size: 0.7em;
+  }
+  .reserve-card-text.date, 
+  .reserve-card-text.venue, 
+  .reserve-card-text.status {
+    font-size: 0.7em;
+  }
+  .reserve-card-text.status {
+    color: red;
+    padding-top: 5px;
+  }
+  .reserve-card-text.venue{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: keep-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;  /* 1줄 까지 */
+    -webkit-box-orient: vertical;
+  }
+  /* 행 및 열 레이아웃 */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  
+  .col-lg-3, .col-md-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .region-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px; /* 버튼 사이의 간격 */
+    background-color: #fff;
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .region-button {
+    background-color: #fff; /* 기본 버튼 배경색 */
+    border: 1px solid #dcdcdc; /* 버튼 테두리 */
+    border-radius: 15px; /* 둥근 모서리 */
+    color: #333; /* 텍스트 색상 */
+    padding: 5px 10px; /* 패딩 조정 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    font-size: 12px; /* 텍스트 크기 */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+
+  .reservationList-button {
+    background-color: #fff; /* 기본 버튼 배경색 */
+    border: 1px solid #dcdcdc; /* 버튼 테두리 */
+    border-radius: 15px; /* 둥근 모서리 */
+    color: #333; /* 텍스트 색상 */
+    padding: 5px 10px; /* 패딩 조정 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    font-size: 20px; /* 텍스트 크기 */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+  
+  .region-button:hover,
+  .reservationList-button:hover {
+    background-color: #e0e0e0; /* 호버 시 버튼 배경색 */
+    border-color: #bbb; /* 호버 시 버튼 테두리 색상 */
+  }
+  
+  .region-button.active,
+  .reservationList-button.active {
+    background-color: #007bff; /* 클릭된 버튼 배경색 */
+    border-color: #007bff; /* 클릭된 버튼 테두리 색상 */
+    color: white; /* 클릭된 버튼 텍스트 색상 */
+    font-weight: bold;
+  }
+  
+  .region-button:focus
+  .reservationList-button:focus {
+    outline: none; /* 포커스 시 아웃라인 제거 */
+  }
+
+/* toggle-button 스타일 */
+.toggle-button {
+  width: 90%;
+  background-color: #007bff; /* 버튼의 배경색 */
+  color: white; /* 버튼 텍스트 색상 */
+  padding: 10px 20px; /* 버튼의 패딩 (내부 여백) */
+  font-size: 16px; /* 버튼의 글꼴 크기 */
+  border: none; /* 버튼의 테두리 제거 */
+  border-radius: 5px; /* 버튼 모서리를 둥글게 */
+  cursor: pointer; /* 커서를 포인터로 변경 */
+  transition: background-color 0.3s ease; /* 배경색 전환 애니메이션 */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3; /* 호버 시 배경색을 어둡게 */
+}
+
+.toggle-button:focus {
+  outline: none; /* 버튼이 포커스 되었을 때 외곽선 제거 */
+}
+
+.toggle-button:active {
+  background-color: #003f7f; /* 버튼이 활성화되었을 때 (클릭 시) 더 어둡게 */
+}
+
+.list-item a,
+.list-item a:hover{
+  color:black;
+  text-decoration: none;
+}

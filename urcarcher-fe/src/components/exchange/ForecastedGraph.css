@@ -1,0 +1,157 @@
+.recharts-dot {
+    display: none;
+}
+
+.graph_wrapper {
+    /* width: auto; */
+    width: 90%;
+}
+
+.lineChart_box {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.legend-item-0 {
+    margin-right: 0 !important;
+    margin-top: 20px;
+}
+
+.gender > .forecast-price {
+    margin-top: 10px;
+    color: #476EFF;
+
+    /* 추가 */
+    margin-bottom: 25px;
+}
+
+/* 추가 */
+.forecast-price label {
+  font-family: 'NanumSquareNeoBold';
+  margin: 0 2px;
+}
+
+/* 추가 */
+.forecast-price input[type='radio'] {
+  appearance: none; /* 기본 브라우저에서 기본 스타일 제거 */
+  border: 1px solid #ccc; /* 체크되지 않았을 때 테두리 색상 */
+  cursor: pointer;
+}
+
+/* 추가 */
+.forecast-price input[type='radio']:checked {
+  background-color: #fff; /* 체크 시 내부 원 색상 */
+  border: 3px solid #476EFF; /* 라인과 원 사이 색상 */
+}
+
+.scroll-container,
+.scroll-area {
+  width: 100%;
+  line-height: 25px;
+}
+
+.over-scroll {
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #476EFF;
+
+}
+
+.over-scroll > span {
+  margin-right: 36px;
+}
+
+.over-scroll > span:nth-child(1) {
+  margin-left: 7px;
+}
+.over-scroll > span:nth-child(2) {
+  margin-left: 35px;
+}
+.over-scroll > span:nth-child(3) {
+  margin-right: 40px;
+}
+.over-scroll > span:nth-child(5) {
+  margin-left: 5px;
+}
+.over-scroll > span:nth-child(6) {
+  margin-right: 0;
+}
+
+.scroll-container {
+  overflow: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  height: 250px;
+  width: 100%; /* 추가 */
+}
+
+.scroll-area {
+  scroll-snap-align: start;
+  height: auto;
+}
+
+.scroll-area table {
+  /* border-collapse: separate; */
+  /* background-color: rgba(71, 110, 255, .15); */
+  
+  /* 추가 */
+  border: 1px solid #CCCC;
+}
+
+/* 추가 */
+.scroll-area th {
+  color: #476EFF;
+  border: 1px solid #CCCC;
+}
+
+/* 추가 */
+.scroll-area td {
+  border: 1px solid #CCCC;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.scroll-container,
+.scroll-area {
+  margin: 0;
+}
+
+.scroll-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+
+  /* 추가 */
+  width: 95%;
+  margin: 0 auto;
+  font-family: 'NanumSquareNeoBold';
+  font-size: 12px;
+}
+
+.scroll-area tr {
+  cursor: pointer;
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) {
+  .graph_wrapper {
+    margin-top: -5px;
+  }
+
+  .scroll-area {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .scroll-container {
+    line-height: 10px;
+  }
+
+  .forecast-price {
+    font-size: 12px;
+  }
+}

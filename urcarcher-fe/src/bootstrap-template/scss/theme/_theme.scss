@@ -1,0 +1,34 @@
+// Main theme file
+
+// custom mixins
+@import "mixins-custom";
+
+// page components & elements
+@import "page";
+@import "typography";
+@import "navbar";
+@import "dropdown";
+@import "card";
+@import "avatar";
+@import "icons";
+@import "sidebar";
+@import "map";
+@import "blobs";
+@import "docs";
+@import "other";
+
+// custom util classes
+@import "utils";
+// demo styling
+@import "demo";
+
+// 3d party plugins styling
+@import "yarl";
+@import "datepicker";
+@import "datatable";
+@import "charts";
+@import "forms-dropzone";
+@import "nouislider";
+@import "spinkit";
+@import "choices";
+@import "calendar";

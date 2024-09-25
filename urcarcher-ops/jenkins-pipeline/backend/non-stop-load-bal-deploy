@@ -1,0 +1,175 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-be.git'
+            }
+            
+            post {
+                success { 
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }    
+        }
+        
+        stage('Load Yml') {
+            steps {
+                withCredentials([file(credentialsId: '7895a090c971c2b84344', variable: 'webConfigFile')]) {
+                    script{
+                        sh """
+                            set +e
+                            set -o
+                            
+                            mkdir src/main/resources
+                            cp $webConfigFile src/main/resources/application.yml
+                        """
+                    }
+                }
+            }
+        }
+        
+        stage('Gradle Build') { 
+            steps {
+                sh 'chmod +x gradlew'
+                sh  './gradlew clean build'
+
+                sh 'ls -al ./build'
+            }
+            post {
+                success {
+                    echo 'gradle build success'
+                }
+
+                failure {
+                    echo 'gradle build failed'
+                }
+            }
+        }
+        
+        stage('Deploying By Blue-Green') {
+            environment {
+                SERVERS_PER_COLOR = 2
+                
+                BLUE_START_PORT = 7070
+                GREEN_START_PORT = 8080
+
+                TARGET_HOST = 'root@ip-172-31-11-34'
+            }
+            steps {
+                sshagent (credentials: ['cd65a25b0ee656aeba29']) {
+                    sh """
+                        CUR_COLOR=\$(docker ps -q -f name=urcarcher-be-blue)
+                        echo \$CUR_COLOR
+                        
+                        if [ -z \$CUR_COLOR ]
+                        then
+                            echo "green running."
+
+                            NXT_COLOR=blue
+                            PRV_COLOR=green
+
+                            NXT_START_PORT=\$BLUE_START_PORT
+                        else
+                            echo "blue running."
+                            
+                            NXT_COLOR=green
+                            PRV_COLOR=blue
+
+                            NXT_START_PORT=\$GREEN_START_PORT
+                        fi
+
+                        docker build . -t inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+
+                        CNTNR_IP_ADDS=""
+
+                        for idx in `seq 1 \$SERVERS_PER_COLOR`
+                        do
+                            docker run --name urcarcher-be-\${NXT_COLOR}\${idx} -d -p \$(expr \$NXT_START_PORT + \$idx - 1):8080 --restart unless-stopped inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+                        
+                            CNTNR_IP_ADDS=\$CNTNR_IP_ADDS" "\$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" urcarcher-be-\${NXT_COLOR}\${idx})
+                        done
+
+                        set +e
+                        set -o
+                        
+                        for cnt in `seq 1 20`
+                        do
+                            echo "Now checking next color..."
+                            
+                            up_cnt=0
+
+                            set -- \$CNTNR_IP_ADDS
+                            while [ -n "\$1" ];
+                            do
+                                UP=\$(curl -s http://\${1}:8080/actuator/health | grep 'UP')
+
+                                if [ -z \$UP ]
+                                then
+                                    echo "Not yet at ip:\${1} in docker network bridge"
+                                else
+                                    up_cnt=`expr \$up_cnt + 1`
+                                fi
+
+                                shift
+                            done
+
+                            if [ \$up_cnt -eq \$SERVERS_PER_COLOR ]
+                            then
+                                break
+                            else
+                                echo "try again soon."
+                            fi
+
+                            echo "wait 5 seconds..."
+                            sleep 5
+                        done
+
+                        if [ \$cnt -eq 20 ]
+                        then
+                            echo "deployment failed."
+
+                            for idx in `seq 1 \$SERVERS_PER_COLOR`
+                            do
+                                docker stop urcarcher-be-\$NXT_COLOR\$idx
+                                docker rm urcarcher-be-\$NXT_COLOR\$idx
+                            done
+
+                            docker rmi -f inthebleakmidwinter/urcarcher-be-\$NXT_COLOR
+
+                            exit 1
+                        fi
+
+                        echo "Next servers started."
+
+                        echo "Chainging nginx server port..."
+
+                        sed -i "s/backend-\${PRV_COLOR}/backend-\${NXT_COLOR}/" /etc/nginx/conf.d/service-url.inc
+                        sed -i "s/backend-\${PRV_COLOR}-ws/backend-\${NXT_COLOR}-ws/" /etc/nginx/conf.d/service-url-ws.inc
+                        
+                        echo "nginx reloading..."
+
+                        ssh -o StrictHostKeyChecking=no \${TARGET_HOST} "service nginx reload"
+
+                        echo "Prev servers down."
+
+                        for idx in `seq 1 \$SERVERS_PER_COLOR`
+                        do
+                            docker stop urcarcher-be-\$PRV_COLOR\$idx
+                            docker rm urcarcher-be-\$PRV_COLOR\$idx
+                        done
+
+                        docker rmi -f inthebleakmidwinter/urcarcher-be-\$PRV_COLOR
+                        
+                        exit 0
+                    """
+                }
+
+            }
+        }
+    }
+}

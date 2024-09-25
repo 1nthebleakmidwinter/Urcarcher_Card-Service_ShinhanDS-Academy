@@ -1,0 +1,204 @@
+.exCard_title {
+    width: 100%;
+    height: 80px;
+    margin-top: 40px;
+    margin-bottom: -10px;
+}
+
+.exCard_title h4 {
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+    font-size: 19px;
+}
+
+.exCard_wrapper {
+    font-family: 'NanumSquareNeoBold';
+    width: 100%;
+    height: auto;
+}
+
+.exCard_user_box {
+    width: 65%;
+    height: 80%;
+    margin-left: 20px;
+    padding-top: 1px;
+    color: white;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.exCard_wrapper p {
+    margin-top: 22px;
+    margin-left: 10px;
+    line-height: 100%;
+}
+
+.exCard_balance {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 18px;
+}
+
+.exCard_text {
+    font-size: 13px;
+}
+
+.unChoice {
+    width: 85%;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 7px;
+    text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.unChoice:hover {
+    transform: translateY(-2px);
+}
+
+.choice {
+    width: 90%;
+    height: 180px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-top: 17px;
+    border-radius: 7px;
+    text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.test::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;  /* 배경 이미지 상속 */
+    filter: blur(1px);
+    z-index: -1;
+    pointer-events: none; /* 가상 요소가 클릭 이벤트를 차단하지 않도록 설정 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.choice button {
+    font-family: 'NanumSquareNeoExtraBold';
+    color: #476EFF;
+}
+
+.choice:hover {
+    transform: translateY(-2px);
+}
+
+.exCard_btn {
+    font-size: 17px;
+    color: #CCCCCC;
+    border: none;
+    background-color: white;
+    float: right;
+    position: relative;
+    right: 25px;
+    bottom: 40px;
+}
+
+.exCard_btn::before {
+    content: "";
+    position: absolute;
+    bottom: 3.5px;
+    width: 33px;
+    height: 1px;
+    display: block;
+    background-color: #CCCCCC;
+}
+
+.exCard_btn_container {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 85%;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.exCard_back_btn {
+    width: 165px;
+    height: 50px;
+    float: left;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #CCCCCC;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.exCard_back_btn:hover {
+    transform: translateY(-2px);
+}
+
+.exCard_next_btn {
+    width: 165px;
+    height: 50px;
+    float: right;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.exCard_next_btn:hover {
+    transform: translateY(-2px);
+}
+
+@media screen and (max-Width: 390px) { /* iPhone 12Pro */
+    .exCard_title {
+        min-width: 60%;
+        margin-top: 30px;
+        margin-bottom: -20px;
+    }
+
+    .exCard_title h4 {
+        font-size: 17px;
+    }
+
+    .exCard_back_btn{
+        width: 45%;
+    }
+
+    .exCard_next_btn {
+        width: 45%;
+    }
+
+    .exCard_user_box {
+        font-size: 12px;
+    }
+
+    .exCard_wrapper p {
+        margin-top: 20px;
+        line-height: 13px;
+    }
+
+    .exCard_balance {
+        font-size: 16px;
+    }
+
+    .exCard_text {
+        font-size: 12px;
+    }
+
+    .unChoice {
+        height: 130px;
+    }
+
+    .choice {
+        height: 155px;
+    }
+}

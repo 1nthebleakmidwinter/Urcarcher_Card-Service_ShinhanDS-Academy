@@ -1,0 +1,255 @@
+.ex_history_wrpper {
+    width: 90%;
+    height: 110px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    padding-top: 30px;
+    border-bottom: 1px solid #CCCC;
+}
+
+.ex_history_wrpper span {
+    font-family: 'NanumSquareNeoExtraBold';
+}
+
+.ex_history_wrpper h3 {
+    font-family: 'NanumSquareNeoHeavy';
+}
+
+.ex_history_btn_wrpper {
+    width: 85px;
+    height: 35px;
+    float: right;
+    position: relative;
+    bottom: 42px;
+}
+
+.ex_go_change_btn {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #476EFF;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.ex_go_change_btn:hover {
+    transform: translateY(-2px);
+}
+
+.ex_history_type_btn {
+    font-family: 'NanumSquareNeoBold';
+    width: 40%;
+    height: 30px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.ex_type_select {
+    border: none;
+    background-color: white;
+    color: black;
+    /* color: #476EFF; */
+}
+
+.ex_type_un_select {
+    border: none;
+    background-color: white;
+    color: #CCCC;
+}
+
+.ex_history_list {
+    width: 90%;
+    height: 535px;
+    float: left;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    overflow-y: scroll;
+    cursor: pointer;
+}
+
+.ex_history_date {
+    width: 100%;
+    height: 35px;
+    text-align: left;
+    line-height: 35px;
+    margin-left: 20px;
+    padding-left: 20px;
+    color: #CCCC;
+    background-color: #F5F5F5;
+}
+
+.ex_history_title {
+    font-family: 'NanumSquareNeoExtraBold';
+    height: 50px;
+    text-align: left;
+    line-height: 50px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.ex_history_cur {
+    font-family: 'NanumSquareNeoExtraBold';
+    height: 50px;
+    float: right;
+    text-align: right;
+    line-height: 50px;
+    padding-right: 10px;
+    position: relative;
+    bottom: 67px;
+    color: #476EFF;
+    white-space: nowrap;
+}
+
+/* 상세 조회 css */
+.ex_history_detail_container {
+    width: 85%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.ex_history_detail_container h4 {
+    text-align: center;
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px;
+    color: #476EFF;
+}
+
+.ex_history_detail_img_box {
+    width: 25%;
+    height: 25%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.ex_history_detail_img_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    perspective: 1000px;
+}
+
+@keyframes rotateCoin {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.coin {
+    transform-style: preserve-3d;
+    animation: rotateCoin 2s infinite linear;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fallMoney {
+    animation: fall 1.5s ease-in-out;
+}
+
+.ex_history_detail_content {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.ex_history_detail_text_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ex_history_detail_left {
+    font-family: 'NanumSquareNeoExtraBold';
+    height: 30px;
+    text-align: left;
+    line-height: 40px;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.ex_history_detail_right {
+    font-family: 'NanumSquareNeoExtraBold';
+    height: 30px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 13px;
+}
+
+.ex_history_detail_btn {
+    width: 85%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: -75px;
+}
+
+.ex_history_go_btn {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+    color: white;
+    background-color: #476EFF;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.ex_history_go_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .ex_history_detail_container h4 {
+        font-size: 14px;
+    }
+
+    .ex_history_list {
+        height: 450px;
+    }
+
+    .ex_history_detail_container {
+        height: 70px;
+    }
+    
+    .ex_history_detail_content {
+        margin-top: 10px;
+    }
+
+    .ex_history_detail_btn {
+        margin-top: -60;
+    }
+
+    .ex_history_detail_left {
+        font-size: 12px;
+    }
+
+    .ex_history_detail_right {
+        font-size: 12px;
+    }
+}

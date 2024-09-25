@@ -1,0 +1,29 @@
+.sort-options {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    align-items: baseline;
+}
+
+.sort-options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+}
+
+.sort-options span {
+    color: #ccc;
+}
+
+.sort-options button:hover {
+    color: #000;
+}
+
+.sort-options button:focus {
+    outline: none;
+    color: #000;
+}

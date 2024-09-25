@@ -1,0 +1,115 @@
+.logout-txt{
+    font-size: 15px;
+}
+.menu-wrap a{ /* 링크 스타일 초기화 */
+    color: black;
+    text-decoration: none;
+}
+.menu-wrap a:hover{
+    text-decoration: none;
+}
+.menu-wrap{
+    z-index: 120; /* 최상위 표시 - 헤더보다 높게 */
+    position: absolute; 
+    top: 0;
+    right: -100%;
+    /* width: 430px;  */
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: white;
+    text-align: left;
+    transition: right 0.3s ease-in-out; 
+  
+}
+/* Menu 컴포넌트가 활성화될 때 */
+.menu-wrap.active {
+    right: 0;
+}
+.close-button {
+    position: absolute;
+    /* top: 33px;
+    right: 35px; */
+    top: 13px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    cursor: pointer;
+}
+.menu{
+    width: 100%;
+    padding-top: 20px;
+}
+.login-prompt{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;  
+}
+.login-prompt > h3{
+    font-size: 25px;
+}
+
+.login-prompt > h3 > span {
+    color: black;
+    padding-right: 10px;
+}
+
+.menu-category-list{
+    margin: 0;
+    padding-left: 20px;
+}
+.menu-category-list > a > li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+}
+.menu-name{
+    font-weight: bold;
+    margin: 0;
+}
+.menu-category-list li:hover .menu-name{
+    color: #336bff;
+}
+.menu-banner{
+    background-color: #F4F7FC;
+    height: 134px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.menu-banner p {
+    color: #333;
+    font-weight: bold;
+    word-break: keep-all;
+    margin: 15px 0 0;
+    font-size: 16px;
+}
+.menu-section{
+    overflow-y: scroll;
+    height: 600px;
+}
+.menu-category-wrap > p {
+    color: #333;
+    font-weight: bold;
+    border-top: 1px solid #eee;
+    padding: 20px 0 0;
+    color: #476EFF;
+    font-size: 15px;
+}
+.menu-category-wrap:first-child > p {
+    border-top: none;
+    padding: 10px 0 0;
+}
+
+@media screen and (max-Width: 414px) {
+    .menu-wrap {
+     padding: 0 20px;
+    }
+  }

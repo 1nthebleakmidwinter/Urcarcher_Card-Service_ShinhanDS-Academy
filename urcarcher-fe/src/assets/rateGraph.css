@@ -1,0 +1,15 @@
+.graph_wrapper {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px ;
+}
+
+.lineChart_box {
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+
+.cartesianGrid_box {
+    width: 90% !important;
+    margin: 0 auto !important;
+}

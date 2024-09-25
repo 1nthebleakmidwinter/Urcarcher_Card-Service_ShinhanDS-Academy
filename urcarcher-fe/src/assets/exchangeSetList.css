@@ -1,0 +1,105 @@
+.ex_set_list_wrapper {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.ex_set_list_img_box {
+    width: 45%;
+    height: 45%;
+    margin: 0 auto;
+}
+
+.ex_set_list_img_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ex_set_list_table {
+    width: 100%;
+    height: 255px;
+    padding: 30px;
+    text-align: left;
+    border-radius: 7px;
+    border: 1px solid #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+    margin-top: 10px;
+}
+
+.ex_set_list_p {
+    color: #CCCCCC;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.ex_set_list_col {
+    width: 100%;
+    height: 60px;
+}
+
+.ex_set_list_text {
+    margin-top: 35px;
+}
+
+.ex_set_list_btn {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 100%;
+    height: 60px;
+    margin-top: 35px;
+}
+
+.set_delete_btn {
+    width: 165px;
+    height: 50px;
+    float: left;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #CCCCCC;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_delete_btn:hover {
+    transform: translateY(-2px);
+}
+
+.set_home_btn {
+    width: 165px;
+    height: 50px;
+    float: right;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_home_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .ex_set_list_wrapper {
+        margin-top: 45px;
+    }
+
+    .ex_set_list_text {
+        margin-top: 35px;
+    }
+
+    .ex_set_list_btn {
+        margin-top: 35px;
+    }
+
+    .ex_set_list_text h5 {
+        font-size: 16px;
+    }
+
+    .set_delete_btn, .set_home_btn {
+        width: 145px;
+    }
+}

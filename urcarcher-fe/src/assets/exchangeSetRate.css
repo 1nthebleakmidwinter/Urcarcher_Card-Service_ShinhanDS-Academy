@@ -1,0 +1,263 @@
+.set_rate_wrapper {
+    width: 100%;
+    height: 700px;
+    margin-top: 50px;
+    overflow-y: scroll;
+}
+
+.set_rate_wrapper h5 {
+    line-height: 25px;
+}
+
+.set_rate_graph_box {
+    width: 200px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.set_rate_graph_btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+}
+
+.set_rate_table {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    overflow-y: scroll;
+}
+
+.set_rate_list {
+    font-family: 'NanumSquareNeoBold';
+    width: 100%;
+    height: 260px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 7px;
+    border: 1px solid #CCCCCC;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_rate_list_select {
+    font-family: 'NanumSquareNeoBold';
+    width: 100%;
+    height: 260px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 7px;
+    border: 1px solid #476EFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_rate_btn {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 100%;
+    height: 35px;
+    color: white;
+    background-color: #476EFF;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_rate_btn:hover {
+    transform: translateY(-2px);
+}
+
+.set_rate_left {
+    width: 110px;
+    height: 30px;
+    float: left;
+    text-align: left;
+    line-height: 40px;
+}
+
+.set_rate_left_text {
+    font-family: 'NanumSquareNeoExtraBold';
+    text-align: left;
+    padding-left: 35px;
+    line-height: 15px;
+}
+
+.set_rate_right {
+    width: 200px;
+    height: 30px;
+    float: right;
+    color: #476EFF;
+    text-align: right;
+}
+
+.set_rate_option {
+    width: 100%;
+    height: 30px;
+    margin: 0 auto;
+    float: left;
+}
+
+.set_rate_value {
+    width: 85%;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+
+.set_rate_date_box {
+    width: 85%;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.set_rate_box_left {
+    font-family: 'NanumSquareNeoBold';
+    color: #476EFF;
+    text-align: left;
+    padding-left: 23px;
+}
+
+.MuiPaper-root {
+    width: 350px !important;
+    max-height: 550px !important;
+    border-radius: 10px !important;
+}
+
+.css-1rtg91x-MuiDateCalendar-root {
+    max-height: 310px;
+}
+
+.css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input {
+    width: 240px !important;
+}
+
+.css-1pysi21-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: 'NanumSquareNeoBold' !important;
+}
+
+.set_rate_notice {
+    width: 85%;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.set_rate_cur {
+    width: 85%;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.set_cur_option {
+    width: 100%;
+    height: 30px;
+    margin: 0 auto;
+    float: left;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.set_cur_option input {
+    font-family: 'NanumSquareNeoBold';
+    font-size: 1rem;
+    font-weight: 400;
+    width: 260px;
+    height: 40px;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.set_rate_pay {
+    width: 85%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: -20px;
+}
+
+.set_rate_pay p {
+    line-height: 40px;
+    padding-left: -20px;
+}
+
+.set_rate_pay_text {
+    font-family: 'NanumSquareNeoBold';
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 10px;
+    text-align: left;
+    color: #282C34;
+}
+
+.set_rate_fix_box {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.set_rate_fix_btn {
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+    color: white;
+    background-color: #476EFF;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 4px 4px 0px;
+}
+
+.set_rate_fix_btn:hover {
+    transform: translateY(-2px);
+}
+
+/* 반응형 css */
+@media screen and (max-Width: 414px) { /* iPhone 12Pro */
+    .set_rate_wrapper {
+        margin-top: 35px;
+    }
+
+    .set_rate_wrapper h4 {
+        font-size: 18px;
+    }
+
+    .set_rate_wrapper h5 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .set_rate_box_left {
+        font-size: 12px;
+    }
+
+    .css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input {
+        width: 220px !important;
+    }
+
+    .css-1pysi21-MuiFormLabel-root-MuiInputLabel-root {
+        font-size: 14px !important;
+    }
+
+    .set_rate_left_text {
+        padding-left: 25px;
+    }
+
+    .set_rate_left_text {
+        font-size: 13px;
+    }
+
+    .set_cur_option input {
+        width: 240px;
+        font-size: 14px;
+    }
+}

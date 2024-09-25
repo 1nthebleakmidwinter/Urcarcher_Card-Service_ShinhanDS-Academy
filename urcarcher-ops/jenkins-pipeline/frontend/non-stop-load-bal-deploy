@@ -1,0 +1,162 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Clone') {
+            steps { 
+                git branch: 'main',
+                    url: 'https://github.com/Urcarcher/urcarcher-fe.git'
+            }
+            post {
+                success {
+                    sh 'echo "Successfully Cloned Repository"'
+                }
+                failure {
+                    sh 'echo "Fail Cloned Repository"'
+                }
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'ls'
+            }
+        }
+        
+        stage('Load Properties'){
+            steps{
+                withCredentials([file(credentialsId: 'urcarcher-fe', variable:'urcarcherFe')]){
+                    script{
+                        sh 'cp $urcarcherFe ./.env'
+                        sh 'ls -a'
+                    }
+                }
+            }
+        }
+        
+        stage('Deploying By Blue-Green'){
+            environment{
+                
+                SERVERS_PER_COLOR=2
+                BLUE_START_PORT=3000
+                GREEN_START_PORT=4000
+                TARGET_HOST = 'ubuntu@ip-172-31-4-127'
+            }
+            
+            steps {
+                sshagent (credentials: ['ec2-instance-ssh']) {
+                    sh """
+                        CUR_COLOR=\$(docker ps -q -f name=urcarcher-fe-blue)
+                        echo \$CUR_COLOR
+
+                        if [ -z \$CUR_COLOR ]
+                        then
+                            echo "green running."
+
+                            NXT_COLOR=blue
+                            PRV_COLOR=green
+
+                            NXT_START_PORT=\$BLUE_START_PORT
+                         
+
+                        else
+                            echo "blue running."
+
+                            NXT_COLOR=green
+                            PRV_COLOR=blue
+
+                            NXT_START_PORT=\$GREEN_START_PORT
+
+                        fi
+
+                        docker build . -t urcarcher-fe-\$NXT_COLOR
+
+        
+
+                        CNTNR_IP_ADDS=""
+                        
+                        for idx in `seq 1 \$SERVERS_PER_COLOR`
+                        do
+                            docker run --name urcarcher-fe-\${NXT_COLOR}\${idx} -d -p \$(expr \$NXT_START_PORT + \$idx - 1):80 --restart unless-stopped urcarcher-fe-\$NXT_COLOR
+
+                            CNTNR_IP_ADDS=\$CNTNR_IP_ADDS" "\$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" urcarcher-fe-\${NXT_COLOR}\${idx})
+                        done
+                        
+                        set +e
+                        set -o
+
+                        for cnt in `seq 1 20`
+                        do
+                            echo "Now checking next color..."
+
+                            up_cnt=0
+
+                            set -- \$CNTNR_IP_ADDS
+                            while [ -n "\$1" ];
+                            do
+                                UP=\$(curl -s -o /dev/null -l -w "%{http_code}" http://\${1}:80 | grep '200')
+
+                                if [ -z \$UP ]
+                                then
+                                    echo "Not yet at ip:\${1} in docker network bridge"
+                                else
+                                    up_cnt=`expr \$up_cnt + 1`
+                                fi
+
+                                shift
+                            done
+
+                            if [ \$up_cnt -eq \$SERVERS_PER_COLOR ]
+                            then
+                                break
+                            else
+                                echo "try again soon."
+                            fi
+
+                            echo "wait 5 seconds..."
+                            sleep 5
+                        done
+
+                        if [ \$cnt -eq 20 ]
+                        then
+                            echo "deployment failed."
+
+                            for idx in `seq 1 \$SERVERS_PER_COLOR`
+                            do
+                                docker stop urcarcher-fe-\$NXT_COLOR\$idx
+                                docker rm urcarcher-fe-\$NXT_COLOR\$idx
+                            done
+
+                            docker rmi -f urcarcher-fe-\$NXT_COLOR
+
+                            exit 1
+                        fi
+                        
+                        echo "Next servers started."
+
+                        echo "Chainging nginx server port..."
+
+                        echo "nginx reloading..."
+
+                        ssh -o StrictHostKeyChecking=no \${TARGET_HOST} "
+                            sudo sed -i "s/\${PRV_COLOR}/\${NXT_COLOR}/" /etc/nginx/conf.d/service_url.inc
+                            sudo service nginx reload
+                        "
+
+                        echo "Prev servers down."
+
+                        for idx in `seq 1 \$SERVERS_PER_COLOR`
+                        do
+                            docker stop urcarcher-fe-\$PRV_COLOR\$idx
+                            docker rm urcarcher-fe-\$PRV_COLOR\$idx
+                        done
+
+                        docker rmi -f urcarcher-fe-\$PRV_COLOR
+                        docker rmi \$(docker images -f "dangling=true" -q)
+
+                        exit 0
+                    """
+                }
+
+            }
+        }
+    }
+}               
