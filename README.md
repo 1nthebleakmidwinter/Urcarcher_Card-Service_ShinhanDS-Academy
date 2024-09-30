@@ -33,7 +33,7 @@
 ![image](https://github.com/user-attachments/assets/212fd399-c7af-43f1-bbb9-c1881fe8ff18)
 
 
-# 최종 선정 AI 모델
+# 최종 선정 AI 모델(환율 예측)
 ![image](https://github.com/user-attachments/assets/4d8adae3-4656-4c6a-9944-44230a3551f6)
 
 # 기술 스택
