@@ -14,12 +14,8 @@
 <p align="center">
   내/외국인 상관없이 저희의 토탈 솔루션 어플리케이션을 이용해보세요!
 </p>
-<p align="center">
-  [시연 영상 보러가기](https://www.youtube.com/watch?v=pySJk-vDz9s) 클릭!
-</p>
-<p align="center">
-  [발표 자료 보러가기](https://drive.google.com/file/d/1GLiMcq2Sb7s7mowVFXHZ0FH8pBrZP6rG/view) 클릭!
-</p>
+#### 🎥 시연 영상 보러가기([Click](https://www.youtube.com/watch?v=pySJk-vDz9s))
+#### 📙 발표자료 보러가기([Click](https://url.kr/45yifz))
 <hr>
 
 # 주요 기능
